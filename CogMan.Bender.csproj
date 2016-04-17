@@ -1,0 +1,70 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2621D587-4004-46A7-BB72-F42A3C89E482}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CogMan.Bender</RootNamespace>
+    <AssemblyName>CogMan.Bender</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.DirectX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.DirectX.Direct3D, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DirectX\LazyTransformation.cs" />
+    <Compile Include="DirectX\ITransformation.cs" />
+    <Compile Include="DirectX\Transformation.cs" />
+    <Compile Include="DirectX\TransformationGroup.cs" />
+    <Compile Include="DirectX\TransformationStack.cs" />
+    <Compile Include="Generic\ITransformation.cs" />
+    <Compile Include="Generic\TransformationChain.cs" />
+    <Compile Include="Generic\TransformationChain.Access.cs">
+      <DependentUpon>TransformationChain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generic\TransformationChain.Entry.cs">
+      <DependentUpon>TransformationChain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generic\Transformation.cs" />
+    <Compile Include="Generic\TransformationGroup.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Generic\TransformationStack.cs" />
+    <Compile Include="Generic\TransformationStack.Access.cs">
+      <DependentUpon>TransformationStack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generic\TransformationStack.Bookmark.cs">
+      <DependentUpon>TransformationStack.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
